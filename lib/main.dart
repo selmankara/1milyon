@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:temel_widget/models/student.dart';
 import 'package:temel_widget/screens/student_add.dart';
+import 'package:temel_widget/screens/student_edit.dart';
 
 void main() {
   runApp(
@@ -83,9 +84,11 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.greenAccent,
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => StudentAdd(students)));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StudentAdd(students),
+                    ),
+                  ).then((value) => setState(() {}));
                 },
                 child: Row(
                   children: [
@@ -102,8 +105,11 @@ class _MyAppState extends State<MyApp> {
               child: RaisedButton(
                 color: Colors.blueAccent,
                 onPressed: () {
-                  var mesaj = 'Güncellendi!';
-                  mesajGoster(context, mesaj);
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentEdit(seciliOgrenci)))
+                      .then((value) => setState(() {}));
                 },
                 child: Row(
                   children: [
